@@ -162,3 +162,7 @@ h2 { font-size: clamp(30px, 4vw, 40px); margin-top: 8px; }
   .contact-layout .contact-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px) { .contact-layout .contact-grid { grid-template-columns: 1fr; } }
+/* reel sound button */
+.sound-btn { position: absolute; right: 16px; bottom: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; display: grid; place-items: center; cursor: pointer; backdrop-filter: blur(8px); transition: background .2s; }
+.sound-btn:hover { background: var(--maroon); }
+.reel h3 { padding-right: 52px; }
