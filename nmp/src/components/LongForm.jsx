@@ -1,15 +1,15 @@
 import { useState } from "react";
 import SectionHeader from "./SectionHeader.jsx";
-import { longform as d } from "../data.js";
+import { longForm as d } from "../data.js";
 
 export default function LongForm() {
   const [started, setStarted] = useState(false);
 
   return (
-    <section id="longform" className="section section-white">
+    <section id="long-form" className="section">
       <div className="container">
-        <SectionHeader label="03 / Featured work" title="Long form storytelling." />
-        <div className="card card-dark">
+        <SectionHeader label="02 / Long-form" title="Stories that need room to breathe." />
+        <div className="panel">
           <div className="player">
             {started ? (
               <iframe
@@ -20,25 +20,26 @@ export default function LongForm() {
               />
             ) : (
               <>
-                <img src={`https://img.youtube.com/vi/${d.youtubeId}/maxresdefault.jpg`} alt={d.title} />
+                <img src={`https://img.youtube.com/vi/${d.youtubeId}/hqdefault.jpg`} alt="" loading="lazy" />
                 <button className="play" onClick={() => setStarted(true)} aria-label={`Play ${d.title}`}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
                 </button>
-                <span className="pill pill-dark ba-left" style={{ top: "auto", bottom: 16 }}>{d.length}</span>
               </>
             )}
           </div>
           <div className="lf-info">
             <div>
-              <span className="eyebrow">{d.tag}</span>
+              <span className="eyebrow">{d.type}</span>
               <h3>{d.title}</h3>
               <p className="muted">{d.description}</p>
             </div>
-            <dl className="lf-meta">
-              {d.meta.map((m) => (
-                <div key={m.k}><dt>{m.k}</dt><dd>{m.v}</dd></div>
-              ))}
-            </dl>
+            <div>
+              <p className="mono-label">My role</p>
+              <ul className="list">
+                {d.responsibilities.map((r) => <li key={r}>{r}</li>)}
+              </ul>
+              <p className="mono-label">Software: {d.software}</p>
+            </div>
           </div>
         </div>
       </div>
